@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sip & Play - A board game shop serving boba tea and small bites in Park Slope, Brooklyn">
+    <meta name="keywords" content="Sip & Play, board games, boba tea, Park Slope, Brooklyn, events">
+    <title>Sip & Play</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <style>
+        body { 
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+            background: url('images/background.jpeg') no-repeat center center fixed; 
+            padding: 0;
+            background-size: medium; 
+            color: #fff;
+        }
+        canvas { display: block; }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 4px 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+        .logo {
+            width: 50px;
+            background-color: #fff;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-top: 60px;
+        }
+        #events-calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Sip & Play Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h1>Welcome to Sip & Play</h1>
+        <p>Your favorite spot for board games, boba tea, and small bites in Park Slope, Brooklyn!</p>
+    </section>
+    
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Discover our cozy board game shop offering a wide selection of games and delicious boba tea.</p>
+    </section>
+
+    <section id="menu">
+        <h2>Our Menu</h2>
+        <div id="3d-menu"></div>
+    </section>
+
+    <section id="events">
+        <h2>Events Calendar</h2>
+        <div id="events-calendar"></div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>123 Park Slope Ave, Brooklyn, NY 11215</p>
+        <p>Email: info@sipnplaynyc.com</p>
+        <p>Phone: (123) 456-7890</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Sip & Play. All rights reserved.</p>
+    </footer>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://threejs.org/examples/jsm/loaders/GLTFLoader.js"></script>
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('events-calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: [
+                    {
+                        title: 'Board Game Night',
+                        start: '2024-07-15'
+                    },
+                    {
+                        title: 'Boba Tasting Event',
+                        start: '2024-07-20'
+                    },
+                    {
+                        title: 'Weekly Meetup',
+                        start: '2024-07-25'
+                    }
+                ]
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>
